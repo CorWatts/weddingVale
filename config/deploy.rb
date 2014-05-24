@@ -1,8 +1,9 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'Wedding Vale!!!'
+set :application, 'WeddingVale'
 set :repo_url, 'ssh://git@errethak.be:9000/samWedding'
+
 # Default branch is :master
 set :branch, 'default'
 
@@ -20,7 +21,7 @@ set :scm, :git
 # set :format, :pretty
 
 # Default value for :log_level is :debug
-# set :log_level, :debug
+set :log_level, :debug
 
 # Default value for :pty is false
 # set :pty, true
@@ -50,7 +51,9 @@ namespace :deploy do
 	
   desc 'Composer install'
   task :composer_install do
-    run "composer install --working-dir #{latest_release}"
+    on roles(:app) do
+      execute "composer install --working-dir #{latest_release}"
+    end
   end
   after :updated, :composer_install
 

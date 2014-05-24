@@ -49,13 +49,15 @@ namespace :deploy do
 
   after :published, :restart
 	
-  desc 'Composer install'
+  desc 'composer install'
   task :composer_install do
-    on roles(:app) do
-      execute "composer install --working-dir #{latest_release}"
+    on roles(:web) do
+      within release_path do
+        execute 'composer', 'install', '--no-dev', '--optimize-autoloader'
+      end
     end
   end
-  after :updated, :composer_install
+
+  after :updated, 'deploy:composer_install'
 
 end
-

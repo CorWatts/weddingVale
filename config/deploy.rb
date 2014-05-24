@@ -5,7 +5,7 @@ set :application, 'WeddingVale'
 set :repo_url, 'ssh://git@errethak.be:9000/samWedding'
 
 # Default branch is :master
-set :branch, 'default'
+set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/var/www/vhosts/ilikecodeine.com'

@@ -29,9 +29,9 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionAbout()
+    public function actionRegistry()
     {
-        return $this->render('about');
+        return $this->render('registry');
     }
 
     public function actionVenue()

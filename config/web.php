@@ -37,7 +37,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<action:(index|about|venue|rsvp)>' => 'site/<action>'
+                '<action:(index|registry|venue|rsvp)>' => 'site/<action>'
             ]
         ],
     ],

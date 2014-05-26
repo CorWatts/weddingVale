@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'http://fonts.googleapis.com/css?family=Dosis:400,600',
     ];
     public $js = [
     ];

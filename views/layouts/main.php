@@ -1,9 +1,8 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
@@ -24,40 +23,19 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
     <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => "Spam and Dub's Wedding!",
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About Us', 'url' => ['/site/about']],
-                    ['label' => 'Venue', 'url' => ['/site/venue']],
-                    ['label' => 'RSVP', 'url' => ['/site/rsvp']],
-                ],
-            ]);
-            NavBar::end();
-        ?>
+        <div id='navbar'>
+            <ul id='navbar-links'>
+            <li><?php echo Html::a('HOME', array('index')); ?></li>
+                <li><?php echo Html::a('RSVP', array('rsvp')); ?></li>
+                <li><?php echo Html::a('REGISTRY', array('registry')); ?></li>
+                <li><?php echo Html::a('VENUE', array('venue')); ?></li>
+            </ul>
+        </div>
 
         <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
             <?= $content ?>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
 
 <?php $this->endBody() ?>
 </body>

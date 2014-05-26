@@ -64,11 +64,11 @@ namespace :deploy do
   task :switch_index do
     on roles(:web) do
         within release_path do
-          execute 'cd web; mv prod.php index.php;'
+          execute 'mv web/prod.php web/index.php;'
         end
     end
   end
 
-  after :composer_install, 'deploy:switch_index'
+  after :published, 'deploy:switch_index'
 
 end

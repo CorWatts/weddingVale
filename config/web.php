@@ -36,6 +36,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'rules' => [
+                '<action:(index|about|venue|rsvp)>' => 'site/<action>'
+            ]
         ],
     ],
     'params' => $params,

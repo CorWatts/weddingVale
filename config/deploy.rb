@@ -8,7 +8,7 @@ set :repo_url, 'ssh://git@errethak.be:9000/samWedding'
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/vhosts/ilikecodeine.com'
+set :deploy_to, '/var/www/vhosts/weddingvale.com'
 
 # Default value for :scm is :git
 set :scm, :git

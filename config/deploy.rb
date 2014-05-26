@@ -60,4 +60,15 @@ namespace :deploy do
 
   after :updated, 'deploy:composer_install'
 
+  desc "Switching index.php to prod"
+  task :switch_index do
+    on roles(:web) do
+        within release_path do
+          execute 'cd web; mv prod.php index.php;'
+        end
+    end
+  end
+
+  after :composer_install, 'deploy:switch_index'
+
 end

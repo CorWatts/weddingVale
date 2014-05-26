@@ -19,7 +19,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body style="background: url('/img/<?php echo (isset($this->context->background)) ? $this->context->background : 'background.jpg'; ?>') no-repeat left top fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover">
 
 <?php $this->beginBody() ?>
     <div class="wrap">

@@ -11,6 +11,8 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    public $background;
+
     public function actions()
     {
         return [
@@ -26,21 +28,25 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $this->background = "background.jpg";
         return $this->render('index');
     }
 
     public function actionRegistry()
     {
+        $this->background = "background.jpg";
         return $this->render('registry');
     }
 
     public function actionVenue()
     {
+        $this->background = "background.jpg";
         return $this->render('venue');
     }
 
     public function actionRsvp()
     {
+        $this->background = "rsvp_background.jpg";
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');

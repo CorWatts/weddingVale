@@ -74,6 +74,37 @@ p.content {
 
 }
 
+.contact-page h1 {
+    float: right;
+    width: 58%;
+}
+
+#contact-form input[type=text], #contact-form textarea { border: 2px solid white; background-color: transparent; color: white; }
+
+#contact-form label {
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#contact-form .help-block {
+    text-align: right;
+}
+
+#contact-form button[type=submit] {
+    background-color: transparent;
+    border: 2px solid white;
+    text-transform: uppercase;
+    width: 120px;
+}
+
 .wrap > .container {
     padding: 70px 15px 20px;
 }
+
+div.required label:after {
+    content: " *";
+    color: #a94442;
+}
+
+.clear {clear: both;}

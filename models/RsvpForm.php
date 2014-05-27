@@ -6,14 +6,15 @@ use Yii;
 use yii\base\Model;
 
 /**
- * ContactForm is the model behind the contact form.
+ * RsvpForm is the model behind the contact form.
  */
-class ContactForm extends Model
+class RsvpForm extends Model
 {
-    public $name;
+    public $names;
+    public $accepting_count;
+    public $declining_count;
     public $email;
-    public $subject;
-    public $body;
+    public $message;
     public $verifyCode;
 
     /**
@@ -23,9 +24,11 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['names', 'email', 'accepting_count', 'declining_count', 'verifyCode'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
+            // counts must be integers
+            [['accepting_count', 'declining_count'], 'integer'],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
         ];
@@ -37,7 +40,12 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
+            'names' => 'Name(s) of Guest(s)',
             'verifyCode' => 'Verification Code',
+            'email' => 'Your Email',
+            'accepting_count' => '# Accepts',
+            'declining_count' => '# Declines',
+            'message' => 'Any Message for Bryan and Sam'
         ];
     }
 
@@ -51,9 +59,9 @@ class ContactForm extends Model
         if ($this->validate()) {
             Yii::$app->mail->compose()
                 ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
+                ->setFrom([$this->email => $this->names])
+                ->setSubject($this->accepting_count . " more people have RSVPed!")
+                ->setTextBody($this->message)
                 ->send();
 
             return true;

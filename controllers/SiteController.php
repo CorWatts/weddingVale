@@ -7,7 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\RsvpForm;
 
 class SiteController extends Controller
 {
@@ -47,13 +47,13 @@ class SiteController extends Controller
     public function actionRsvp()
     {
         $this->background = "rsvp_background.jpg";
-        $model = new ContactForm();
+        $model = new RsvpForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
         } else {
-            return $this->render('contact', [
+            return $this->render('rsvp', [
                 'model' => $model,
             ]);
         }

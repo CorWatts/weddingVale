@@ -57,6 +57,13 @@ class SiteController extends Controller
                 ->setReplyTo($model->email)
                 ->send();
 
+            Yii::$app->mail->compose('@app/views/mail/toAttendee',['model' => $model])
+                ->setFrom('noreply@weddingvale.com')
+                ->setTo($model->email)
+                ->setSubject("You've RSVPed for Sam and Bryan's wedding!")
+                ->setReplyTo('samwattsart@gmail.com')
+                ->send();
+
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();

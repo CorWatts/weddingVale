@@ -48,14 +48,14 @@ class SiteController extends Controller
     {
         $this->background = "rsvp_background.jpg";
         $model = new RsvpForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            
-        Yii::$app->mail->compose('@app/views/mail/toSam',['model' => $model])
-             ->setFrom('admin@weddingvale.com')
-             ->setTo("corwatts@gmail.com")
-             ->setSubject("Someone has RSVPed for your wedding!")
-             ->setReplyTo($model->email)
-             ->send();
+        $model->scenario = "submit";
+        if ($model->load(Yii::$app->request->post())) {
+            Yii::$app->mail->compose('@app/views/mail/toSam',['model' => $model])
+                ->setFrom('noreply@weddingvale.com')
+                ->setTo("corwatts@gmail.com")
+                ->setSubject("Someone has RSVPed for your wedding!")
+                ->setReplyTo($model->email)
+                ->send();
 
             Yii::$app->session->setFlash('contactFormSubmitted');
 

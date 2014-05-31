@@ -34,6 +34,12 @@ class RsvpForm extends Model
         ];
     }
 
+    public function scenarios() {
+        return [
+            'submit' => ['names', 'accepting_count', 'declining_cont', 'email', 'message', 'verifyCode']
+            ];
+    }
+
     /**
      * @return array customized attribute labels
      */
@@ -49,24 +55,4 @@ class RsvpForm extends Model
         ];
     }
 
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     * @param  string  $email the target email address
-     * @return boolean whether the model passes validation
-     */
-    public function contact($email)
-    {
-        if ($this->validate()) {
-            Yii::$app->mail->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->names])
-                ->setSubject($this->accepting_count . " more people have RSVPed!")
-                ->setTextBody($this->message)
-                ->send();
-
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

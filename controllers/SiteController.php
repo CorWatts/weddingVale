@@ -52,7 +52,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             Yii::$app->mail->compose('@app/views/mail/toSam',['model' => $model])
                 ->setFrom('noreply@weddingvale.com')
-                ->setTo("corwatts@gmail.com")
+                ->setTo("samwattsart@gmail.com")
                 ->setSubject("Someone has RSVPed for your wedding!")
                 ->setReplyTo($model->email)
                 ->send();

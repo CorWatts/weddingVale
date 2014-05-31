@@ -21,7 +21,7 @@ $config = [
         ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => true,
+            //'useFileTransport' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

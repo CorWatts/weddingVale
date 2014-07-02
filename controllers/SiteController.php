@@ -40,7 +40,7 @@ class SiteController extends Controller
 
     public function actionVenue()
     {
-        $this->background = "background.jpg";
+        $this->background = "venue_background.jpg";
         return $this->render('venue');
     }
 

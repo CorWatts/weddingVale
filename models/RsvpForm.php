@@ -49,8 +49,8 @@ class RsvpForm extends Model
             'names' => 'Name(s) of Guest(s)',
             'verifyCode' => 'Verification Code',
             'email' => 'Your Email',
-            'accepting_count' => '# Accepts',
-            'declining_count' => '# Declines',
+            'accepting_count' => 'Number Accepting',
+            'declining_count' => 'Number Declining',
             'message' => 'Any Message for Bryan and Sam'
         ];
     }

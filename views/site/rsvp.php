@@ -13,12 +13,11 @@ $this->title = 'Sam and Bryan | RSVP';
 <div class="contact-page">
     <h1 class='title'>R.S.V.P.</h1>
     <div class='clear'></div>
-    <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
+    <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
     <div class="alert alert-success">
         Thank you for RSVPing!
     </div>
-
     <?php else: ?>
 
     <div class="row">
@@ -47,4 +46,7 @@ $this->title = 'Sam and Bryan | RSVP';
     </div>
 
     <?php endif; ?>
+<div class='row'>
+    <div id='rsvp-footer' class='col-md-5 col-md-offset-7'>We love you all, and we wish we could invite absolutely everybody to our wedding! However, due to limited space at our venue, please don't bring uninvited guests. Thanks for understanding!</div>
+</div>
 </div>

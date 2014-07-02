@@ -34,7 +34,7 @@ class SiteController extends Controller
 
     public function actionRegistry()
     {
-        $this->background = "background.jpg";
+        $this->background = "registry_background.jpg";
         return $this->render('registry');
     }
 

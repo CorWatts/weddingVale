@@ -7,6 +7,11 @@ use yii\helpers\Html;
 $this->title = 'Sam and Bryan | Venue';
 ?>
 <div id='venue-page'>
+    <h1 class='title'>HOTELS</h1>
+    <p class='content'>
+        <a href="http://www.posadaroyale.com">Best Western Posada Royale</a><br />
+        <a href="http://www.holiday-inn-simi-valley.pacificahost.com">Holiday Inn</a>
+
     <h1 class='title'>VENUE</h1>
     <p class='content'>We will be married at the Tuscan Villa Estate in Simi Valley, California. We're excited about this venue; it's a Mediterranean-style villa on a beautiful piece of property in the hills north of Los Angeles.</p>
 
@@ -15,5 +20,4 @@ $this->title = 'Sam and Bryan | Venue';
     <p class='content'>And how about dinner? Do crepes made fresh right in front of you sound good? Because that sounded good to us. Yeah. Crepes. That's happening.</p>
 
     <img src='/img/crepes.jpg' id='crepes' title='crepes' alt='crepes' />
-
 </div>
